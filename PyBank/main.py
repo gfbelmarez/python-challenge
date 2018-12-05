@@ -49,8 +49,8 @@ with open(budget_data, newline='') as csvfile:
     analysis += f"\nGreatest Increase in Profits: {max_date} ({max_change})\nGreatest Decrease in Profits: {min_date} ({min_change})"
     
     text_file = open("analysis.txt", "w")
-    text_file.write(analysis + "\nResults also saved in analysis.txt")
+    text_file.write(analysis)
     text_file.close()
     print (analysis)
-    
+    print("\nResults also saved in analysis.txt")
    

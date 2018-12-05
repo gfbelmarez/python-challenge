@@ -39,6 +39,7 @@ report += "\n-------------------------"
 
 # save results as text file
 text_file = open("report.txt", "w")
-text_file.write(report + "\nResults also saved in report.txt")
+text_file.write(report)
 text_file.close()
 print (report)
+print ("\nReport also exported to report.txt")
