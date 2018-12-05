@@ -42,8 +42,15 @@ with open(budget_data, newline='') as csvfile:
     avg_change = round(avg_helper/(total_months - 1),2)
     
     # print to terminal
-    print ( "Financial Analysis")
-    print ("----------------------------")
-    print (f"Total Months: {total_months}\nTotal: {total_profit}\nAverage Change: {avg_change}")
-    print (f"Greatest Increase in Profits: {max_date} ({max_change})\nGreatest Decrease in Profits: {min_date} ({min_change})")
+    analysis = ""
+    analysis += "\nFinancial Analysis"
+    analysis += "\n----------------------------"
+    analysis += f"\nTotal Months: {total_months}\nTotal: {total_profit}\nAverage Change: {avg_change}"
+    analysis += f"\nGreatest Increase in Profits: {max_date} ({max_change})\nGreatest Decrease in Profits: {min_date} ({min_change})"
+    
+    text_file = open("analysis.txt", "w")
+    text_file.write(analysis + "\nResults also saved in analysis.txt")
+    text_file.close()
+    print (analysis)
+    
    

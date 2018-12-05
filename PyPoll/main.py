@@ -18,19 +18,27 @@ with open(election_data, newline='') as csvfile:
             vote_totals[row[2]] = vote_totals[row[2]] + 1
         else:
             vote_totals[row[2]] = 1
-    
-    # print results
-    print ("Election Results")
-    print ("-------------------------")
-    print (f"Total Votes: {total}")
-    print ("-------------------------")
-    curr_max = 0
-    for candidate, votes in vote_totals.items():
-        print (f"{candidate}: {round (votes*100/total,4)}% ({votes})")
-        # find winner
-        if votes > curr_max:
-            curr_max = votes
-            winner = candidate
-    print ("-------------------------")
-    print (f"Winner: {winner}")
-    print ("-------------------------")
+            report = ""
+csvfile.close()
+
+# print results
+report += "\nElection Results"
+report += "\n-------------------------"
+report += f"\nTotal Votes: {total}"
+report += "\n-------------------------"
+curr_max = 0
+for candidate, votes in vote_totals.items():
+    report += (f"\n{candidate}: {round (votes*100/total,4)}% ({votes})")
+    # find winner
+    if votes > curr_max:
+        curr_max = votes
+        winner = candidate
+report += "\n-------------------------"
+report += f"\nWinner: {winner}"
+report += "\n-------------------------"
+
+# save results as text file
+text_file = open("report.txt", "w")
+text_file.write(report + "\nResults also saved in report.txt")
+text_file.close()
+print (report)
